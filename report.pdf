@@ -1,0 +1,169 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+3 0 obj
+<< /Length 3865 >>
+stream
+BT
+/F2 18 Tf
+72 760 Td
+(Transformer Summarization Report) Tj
+/F2 12 Tf
+72 730 Td
+(Introduction) Tj
+/F1 10 Tf
+72 712 Td
+(This report describes a complete Transformer-based abstractive summarization system for) Tj
+/F1 10 Tf
+72 699 Td
+(CNN/DailyMail. The implementation is written from scratch in PyTorch and avoids) Tj
+/F1 10 Tf
+72 686 Td
+(pretrained or prebuilt Transformer summarization models.) Tj
+/F2 12 Tf
+72 666 Td
+(Dataset Description) Tj
+/F1 10 Tf
+72 648 Td
+(CNN/DailyMail contains news articles paired with human highlights. The notebook) Tj
+/F1 10 Tf
+72 635 Td
+(downloads the dataset from Hugging Face and uses deterministic train, validation, and) Tj
+/F1 10 Tf
+72 622 Td
+(unseen test subsets for a CPU-friendly reproducible assignment run.) Tj
+/F2 12 Tf
+72 602 Td
+(Data Preprocessing) Tj
+/F1 10 Tf
+72 584 Td
+(The pipeline removes HTML tags, malformed unicode, non-ASCII symbols, duplicate) Tj
+/F1 10 Tf
+72 571 Td
+(whitespace, and normalizes quotation marks. Articles are limited to 512 tokens with a) Tj
+/F1 10 Tf
+72 558 Td
+(first-half plus last-half context window because self-attention memory grows) Tj
+/F1 10 Tf
+72 545 Td
+(quadratically with sequence length.) Tj
+/F2 12 Tf
+72 525 Td
+(Tokenization Method) Tj
+/F1 10 Tf
+72 507 Td
+(A custom BPE tokenizer is trained on the training corpus with an 8,000-token vocabulary.) Tj
+/F1 10 Tf
+72 494 Td
+(Subword tokenization reduces OOV failures for rare political names, companies, and) Tj
+/F1 10 Tf
+72 481 Td
+(geographic locations by decomposing uncommon words into reusable pieces.) Tj
+/F2 12 Tf
+72 461 Td
+(Transformer Architecture) Tj
+/F1 10 Tf
+72 443 Td
+(The model contains token embeddings, sinusoidal positional encodings, encoder blocks,) Tj
+/F1 10 Tf
+72 430 Td
+(decoder blocks, feed-forward layers, residual connections, and layer normalization.) Tj
+/F1 10 Tf
+72 417 Td
+(Encoder and decoder stacks are implemented as modular PyTorch classes.) Tj
+/F2 12 Tf
+72 397 Td
+(Attention Mechanism) Tj
+/F1 10 Tf
+72 379 Td
+(Multi-head attention explicitly computes query, key, and value projections, splits) Tj
+/F1 10 Tf
+72 366 Td
+(heads, applies Softmax\(QK^T / sqrt\(d\)\), combines values, concatenates heads, and) Tj
+/F1 10 Tf
+72 353 Td
+(projects the output. The decoder cross-attention uses decoder states as queries and) Tj
+/F1 10 Tf
+72 340 Td
+(encoder outputs as keys and values.) Tj
+/F2 12 Tf
+72 320 Td
+(Masking Strategy) Tj
+/F1 10 Tf
+72 302 Td
+(Padding masks have shape \(batch_size, 1, 1, source_length\) and prevent attention to PAD) Tj
+/F1 10 Tf
+72 289 Td
+(tokens. Causal masks are lower-triangular visibility matrices with shape \(target_length,) Tj
+/F1 10 Tf
+72 276 Td
+(target_length\), preventing each target position from seeing future tokens.) Tj
+/F2 12 Tf
+72 256 Td
+(Training Methodology) Tj
+/F1 10 Tf
+72 238 Td
+(Training uses teacher forcing: the decoder receives BOS-prefixed summaries and predicts) Tj
+/F1 10 Tf
+72 225 Td
+(shifted target summaries ending with EOS. The loss is cross entropy with label smoothing) Tj
+/F1 10 Tf
+72 212 Td
+(0.1, optimized by AdamW with a learning-rate scheduler for at least three epochs.) Tj
+/F2 12 Tf
+72 192 Td
+(ROUGE Results) Tj
+/F1 10 Tf
+72 174 Td
+(The notebook and train.py compute ROUGE-1, ROUGE-2, and ROUGE-L on at least five unseen) Tj
+/F1 10 Tf
+72 161 Td
+(test articles after greedy decoding. Exact values depend on the selected subset and) Tj
+/F1 10 Tf
+72 148 Td
+(available compute, but the scoring pipeline is fully implemented.) Tj
+/F2 12 Tf
+72 128 Td
+(Error Analysis) Tj
+/F1 10 Tf
+72 110 Td
+(With the default small CPU subset, generated summaries can repeat tokens, omit secondary) Tj
+/F1 10 Tf
+72 97 Td
+(facts, hallucinate common news phrases, or stop early. These errors are typical of) Tj
+/F1 10 Tf
+72 84 Td
+(undertrained small Transformers and can be mitigated with more data, larger dimensions,) Tj
+/F1 10 Tf
+72 71 Td
+(and longer training.) Tj
+ET
+endstream
+endobj
+4 0 obj
+<< /Type /Page /Parent 5 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 3 0 R >>
+endobj
+5 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+6 0 obj
+<< /Type /Catalog /Pages 5 0 R >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000079 00000 n 
+0000000154 00000 n 
+0000004071 00000 n 
+0000004207 00000 n 
+0000004264 00000 n 
+trailer
+<< /Size 7 /Root 6 0 R >>
+startxref
+4313
+%%EOF
