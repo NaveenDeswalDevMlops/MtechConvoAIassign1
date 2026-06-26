@@ -1,37 +1,13 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Neon Byte Arcade</title>
-  <style>
-    :root{--bg:#090909;--fg:#f8fbff;--muted:#a9b0c7;--glass:rgba(20,24,38,.68);--line:rgba(255,255,255,.12)}
-    *{box-sizing:border-box} html{min-height:100%}
-    body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--fg);font-family:system-ui,"Segoe UI","SF Pro Display",Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(circle at 20% 0%,rgba(99,102,241,.26),transparent 36%),radial-gradient(circle at 80% 10%,rgba(34,211,238,.20),transparent 34%),linear-gradient(180deg,#101018,#090909 64%);padding:clamp(18px,4vw,48px)}
-    body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(circle at center,#000 0%,transparent 78%);animation:grid 12s linear infinite}
-    body:after{content:"";position:fixed;inset:-20%;pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,.12) 0 1px,transparent 2px);background-size:74px 74px;animation:stars 18s linear infinite;opacity:.34}
-    @keyframes grid{to{transform:translateY(48px)}} @keyframes stars{to{transform:translate3d(-74px,74px,0)}}
-    .hero,.grid{max-width:1180px;margin:auto;position:relative}.hero{display:grid;gap:18px;margin-bottom:30px;animation:rise .65s cubic-bezier(.2,.8,.2,1)}
-    .eyebrow{width:max-content;border:1px solid rgba(103,232,249,.45);border-radius:999px;background:rgba(34,211,238,.08);padding:8px 12px;color:#67e8f9;font-weight:800;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 0 28px rgba(34,211,238,.18)}
-    h1{margin:0;font-size:clamp(3rem,10vw,7.8rem);letter-spacing:-.08em;line-height:.82;text-shadow:0 0 24px rgba(255,255,255,.18),10px 10px 0 #000}.hero p{max-width:760px;margin:0;color:var(--muted);font-size:clamp(1rem,2vw,1.22rem);line-height:1.65}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}.tile{--a:#67e8f9;position:relative;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;gap:18px;overflow:hidden;text-decoration:none;color:var(--fg);background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.03));border:1px solid color-mix(in srgb,var(--a),white 12%);border-radius:24px;padding:24px;box-shadow:12px 12px 0 #000,0 0 44px color-mix(in srgb,var(--a),transparent 76%);backdrop-filter:blur(18px);transform:translateY(18px);opacity:0;animation:tile .6s cubic-bezier(.2,.8,.2,1) forwards;transition:transform .22s,box-shadow .22s,border-color .22s}.tile:nth-child(2){animation-delay:.04s}.tile:nth-child(3){animation-delay:.08s}.tile:nth-child(4){animation-delay:.12s}.tile:nth-child(5){animation-delay:.16s}.tile:nth-child(6){animation-delay:.20s}.tile:nth-child(7){animation-delay:.24s}.tile:nth-child(8){animation-delay:.28s}.tile:nth-child(9){animation-delay:.32s}.tile:before{content:"";position:absolute;inset:-40%;background:radial-gradient(circle at 20% 20%,color-mix(in srgb,var(--a),transparent 62%),transparent 38%);opacity:.75;transition:transform .35s}.tile:hover,.tile:focus-visible{outline:0;transform:translate(-6px,-8px) scale(1.02);box-shadow:18px 18px 0 #000,0 0 70px color-mix(in srgb,var(--a),transparent 58%)}.tile:hover:before{transform:translate(12%,8%) rotate(8deg)}.tile:active{transform:translate(-2px,-2px) scale(.99)}.icon{position:relative;width:62px;height:62px;border-radius:18px;display:grid;place-items:center;color:#060606;background:var(--a);font-weight:1000;font-size:1.7rem;box-shadow:0 0 32px color-mix(in srgb,var(--a),transparent 35%)}.tile b{position:relative;font-size:1.7rem;letter-spacing:-.04em}.tile span{position:relative;color:var(--muted);line-height:1.45}.meta{position:relative;display:flex;justify-content:space-between;align-items:center;color:var(--a);font-size:.86rem;font-weight:900;text-transform:uppercase;letter-spacing:.1em}@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}@keyframes tile{to{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.tile{opacity:1;transform:none}}
-  </style>
-</head>
-<body>
-  <header class="hero">
-    <div class="eyebrow">Offline / Vanilla / Neon</div>
-    <h1>NEON BYTE<br>ARCADE</h1>
-    <p>A premium single-folder mini-game collection. Keep every file together and open <strong>index.html</strong> directly from disk — no server, build step, downloads, or storage APIs.</p>
-  </header>
-  <main class="grid" aria-label="Game launcher">
-    <a class="tile" style="--a:#8cff52" href="snake.html"><div class="icon">S</div><b>Snake</b><span>Classic grid chase with rising speed and session best.</span><div class="meta"><em>Arcade</em><strong>Play ›</strong></div></a>
-    <a class="tile" style="--a:#22d3ee" href="pong.html"><div class="icon">P</div><b>Pong</b><span>Angle-based paddle duels against a reactive AI.</span><div class="meta"><em>Versus</em><strong>Play ›</strong></div></a>
-    <a class="tile" style="--a:#fb923c" href="breakout.html"><div class="icon">B</div><b>Breakout</b><span>Smash neon brick walls with mouse, touch, or keys.</span><div class="meta"><em>Skill</em><strong>Play ›</strong></div></a>
-    <a class="tile" style="--a:#a78bfa" href="tetris.html"><div class="icon">T</div><b>Tetris</b><span>7-bag tetrominoes, ghost piece, levels, and next preview.</span><div class="meta"><em>Puzzle</em><strong>Play ›</strong></div></a>
-    <a class="tile" style="--a:#facc15" href="2048.html"><div class="icon">2</div><b>2048</b><span>Swipe and merge gold tiles to reach the crown number.</span><div class="meta"><em>Logic</em><strong>Play ›</strong></div></a>
-    <a class="tile" style="--a:#38bdf8" href="flappy.html"><div class="icon">F</div><b>Flappy</b><span>One-button flight through glowing pipe gates.</span><div class="meta"><em>Reflex</em><strong>Play ›</strong></div></a>
-    <a class="tile" style="--a:#22c55e" href="tictactoe.html"><div class="icon">X</div><b>Tic Tac Toe</b><span>Face an unbeatable minimax opponent.</span><div class="meta"><em>AI</em><strong>Play ›</strong></div></a>
-    <a class="tile" style="--a:#fb7185" href="minesweeper.html"><div class="icon">M</div><b>Minesweeper</b><span>Safe first click, flood reveals, flags, timer, and mines.</span><div class="meta"><em>Classic</em><strong>Play ›</strong></div></a>
-    <a class="tile" style="--a:#f472b6" href="memory.html"><div class="icon">★</div><b>Memory</b><span>Flip glossy cards and match all eight symbol pairs.</span><div class="meta"><em>Focus</em><strong>Play ›</strong></div></a>
-  </main>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mini Arcade</title><style>
+:root{--bg:#090a12;--panel:#151827;--fg:#f5f7ff;--muted:#99a1bd}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at top,#1b2140,#090a12 55%);color:var(--fg);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;padding:28px}header{max-width:1100px;margin:auto auto 26px}h1{font-size:clamp(2rem,7vw,5rem);margin:0;text-shadow:8px 8px #000}p{color:var(--muted);line-height:1.5}.grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}.tile{--a:#5cf2ff;display:block;text-decoration:none;color:var(--fg);background:linear-gradient(145deg,#1d2135,#111320);border:3px solid var(--a);border-radius:18px;padding:22px;min-height:150px;box-shadow:10px 10px 0 #000, inset 0 0 30px #0008;transition:transform .15s,box-shadow .15s}.tile:hover,.tile:focus{transform:translate(-4px,-4px);box-shadow:14px 14px 0 #000;outline:none}.tile b{display:block;font-size:1.55rem;margin-bottom:16px;color:var(--a)}.tile span{color:var(--muted)}@media(prefers-reduced-motion:reduce){.tile{transition:none}}
+</style></head><body><header><h1>MINI ARCADE</h1><p>Offline vanilla HTML/CSS/JS games. Keep every file in this one folder and open <b>index.html</b> to play.</p></header><main class="grid">
+<a class="tile" style="--a:#65ff65" href="snake.html"><b>Snake</b><span>Arrows/WASD, Space restart.</span></a>
+<a class="tile" style="--a:#ff5cf7" href="pong.html"><b>Pong</b><span>W/S, arrows, mouse. First to 7.</span></a>
+<a class="tile" style="--a:#ffbd45" href="breakout.html"><b>Breakout</b><span>Mouse or arrows, click/Space launch.</span></a>
+<a class="tile" style="--a:#5cf2ff" href="tetris.html"><b>Tetris</b><span>Move, rotate, hard drop.</span></a>
+<a class="tile" style="--a:#ffd84c" href="2048.html"><b>2048</b><span>Arrows and touch swipes.</span></a>
+<a class="tile" style="--a:#7c6cff" href="flappy.html"><b>Flappy</b><span>Click/Space/↑ to flap.</span></a>
+<a class="tile" style="--a:#ff6b8b" href="tictactoe.html"><b>Tic Tac Toe</b><span>Unbeatable minimax AI.</span></a>
+<a class="tile" style="--a:#4dffbf" href="minesweeper.html"><b>Minesweeper</b><span>Reveal, flag, clear safe cells.</span></a>
+<a class="tile" style="--a:#b6ff4d" href="memory.html"><b>Memory</b><span>Match all 8 pairs.</span></a>
+</main></body></html>

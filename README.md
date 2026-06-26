@@ -1,6 +1,6 @@
-# Neon Byte Arcade
+# Mini Arcade
 
-A premium browser-based mini-game arcade made with pure vanilla HTML, CSS, and JavaScript. It uses a cohesive cyber-arcade visual system with neon accents, responsive layouts, inline styles/scripts, lightweight generated Web Audio UI feedback, and no frameworks, libraries, CDNs, external images, web fonts, build tools, or storage APIs.
+A browser-based mini-game arcade made with pure vanilla HTML, CSS, and JavaScript. There are no frameworks, libraries, CDNs, external images, web fonts, build tools, or storage APIs.
 
 ## How to play
 
@@ -19,11 +19,3 @@ Keep **all files in this repository folder together in one flat folder**. Open `
 | Tic Tac Toe | `tictactoe.html` | Click/tap a cell | Play X against unbeatable O; track wins/losses/ties |
 | Minesweeper | `minesweeper.html` | Left-click reveal, right-click flag | Reveal all safe cells on a 9×9 board with 10 mines |
 | Memory | `memory.html` | Click/tap cards | Match all 8 pairs with as few moves as possible |
-
-
-## Design notes
-
-- Every game is a standalone `.html` document with inline CSS and JavaScript.
-- The arcade uses system UI fonts only and keeps scores/bests in memory for the current page session.
-- Each game includes a polished start menu, floating HUD, large controls, a generated sound toggle, animated overlays, and a `‹ Menu` link back to the launcher.
-- Motion effects respect `prefers-reduced-motion`.
