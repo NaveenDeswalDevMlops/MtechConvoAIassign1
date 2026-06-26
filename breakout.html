@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Breakout</title>
+<style>:root{--a:#ffbd45}*{box-sizing:border-box}html{height:100%}body{margin:0;min-height:100vh;overflow-x:hidden;background:radial-gradient(circle at 20% -10%,color-mix(in srgb,var(--a),transparent 78%),transparent 34%),radial-gradient(circle at 88% 8%,rgba(255,255,255,.10),transparent 28%),linear-gradient(180deg,#101018,#090909 70%);color:#f8fbff;font-family:system-ui,"Segoe UI","SF Pro Display",Roboto,Helvetica,Arial,sans-serif;display:flex;flex-direction:column;align-items:center;padding:clamp(12px,3vw,24px)}body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(circle,#000 0%,transparent 78%);animation:grid 14s linear infinite}body:after{content:"";position:fixed;inset:-20%;pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,.14) 0 1px,transparent 2px);background-size:82px 82px;animation:stars 20s linear infinite;opacity:.28}@keyframes grid{to{transform:translateY(44px)}}@keyframes stars{to{transform:translate3d(-82px,82px,0)}}.top{position:relative;z-index:2;width:min(920px,100%);display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:6px}.menu{min-height:44px;display:inline-flex;align-items:center;color:var(--a);text-decoration:none;font-weight:900;border:1px solid color-mix(in srgb,var(--a),transparent 20%);border-radius:999px;background:rgba(255,255,255,.07);padding:10px 14px;box-shadow:5px 5px 0 #000,0 0 28px color-mix(in srgb,var(--a),transparent 78%)}.hud{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}.pill,button{font:inherit;font-weight:800;background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.04));color:#fff;border:1px solid color-mix(in srgb,var(--a),white 12%);border-radius:14px;padding:10px 14px;box-shadow:5px 5px 0 #000,0 0 24px color-mix(in srgb,var(--a),transparent 82%);backdrop-filter:blur(14px)}.pill b{font-variant-numeric:tabular-nums;color:var(--a)}button{cursor:pointer;min-height:44px;transition:transform .18s,box-shadow .18s,filter .18s}button:hover,button:focus-visible,.menu:hover,.menu:focus-visible{outline:2px solid var(--a);outline-offset:3px;transform:translate(-2px,-3px);filter:brightness(1.12)}button:active{transform:translate(1px,1px)}h1{position:relative;z-index:1;margin:10px 0 2px;color:var(--a);font-size:clamp(2.1rem,7vw,4.6rem);letter-spacing:-.07em;text-shadow:0 0 26px color-mix(in srgb,var(--a),transparent 45%),7px 7px 0 #000}canvas,.board{position:relative;z-index:1;max-width:min(94vw,920px);height:auto;background:linear-gradient(180deg,rgba(17,20,33,.92),rgba(9,10,18,.96));border:1px solid color-mix(in srgb,var(--a),white 10%);border-radius:22px;box-shadow:14px 14px 0 #000,0 0 55px color-mix(in srgb,var(--a),transparent 72%),inset 0 0 36px rgba(255,255,255,.04);margin-top:14px;touch-action:none}.overlay,.start{position:fixed;inset:0;z-index:5;background:rgba(0,0,0,.72);display:none;place-items:center;text-align:center;padding:20px;backdrop-filter:blur(10px)}.start{display:grid}.card{width:min(520px,92vw);background:linear-gradient(145deg,rgba(28,32,49,.86),rgba(12,14,24,.92));border:1px solid color-mix(in srgb,var(--a),white 15%);border-radius:24px;padding:28px;box-shadow:16px 16px 0 #000,0 0 70px color-mix(in srgb,var(--a),transparent 68%);animation:pop .42s cubic-bezier(.2,.9,.2,1)}.card p{color:#b9c0d8;line-height:1.55}.art{width:112px;height:112px;margin:0 auto 12px;border-radius:30px;background:radial-gradient(circle at 35% 30%,#fff8,transparent 20%),linear-gradient(135deg,var(--a),transparent);box-shadow:0 0 48px color-mix(in srgb,var(--a),transparent 35%);animation:float 3s ease-in-out infinite}.sound{position:fixed;right:16px;bottom:16px;z-index:4}.shake{animation:shake .22s}.flash{animation:flash .32s}@keyframes pop{from{opacity:0;transform:scale(.92) translateY(18px)}to{opacity:1;transform:none}}@keyframes float{50%{transform:translateY(-8px) rotate(2deg)}}@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}@keyframes flash{50%{filter:brightness(1.8)}}@media(max-width:640px){.top{align-items:flex-start}.hud{font-size:.86rem}.pill,button,.menu{padding:9px 11px}canvas{width:94vw}.board{transform-origin:top center;max-width:94vw}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}</style>
+</head>
+<body>
+<div class="start" id="start">
+<div class="card">
+<div class="art" aria-hidden="true">
+</div>
+<h2>Breakout</h2>
+<p>Launch the ball and shatter the glowing brick wall before lives run out.</p>
+<p>
+<strong>Controls:</strong> Mouse/touch or arrows move. Click or Space launches.</p>
+<p>
+<strong>Mode:</strong> Normal</p>
+<button id="startBtn" type="button">Start Game</button>
+</div>
+</div>
+<button class="sound" id="soundBtn" type="button" aria-label="Toggle sound">Sound On</button>
+<div class=top>
+<a class=menu href="index.html">‹ Menu</a>
+<div class=hud>
+<span class=pill>Score <b id=s>0</b>
+</span>
+<span class=pill>Lives <b id=l>3</b>
+</span>
+</div>
+</div>
+<h1>BREAKOUT</h1>
+<canvas id=c width=640 height=480>
+</canvas>
+<div class=overlay id=o>
+<div class=card>
+<h2 id=m>
+</h2>
+<button onclick="reset()">Restart</button>
+</div>
+</div>
+<script>
+// Premium shell: menu, generated UI sounds, and button feedback.
+let __muted=false,__audio;function __beep(freq=440,dur=.06,type='sine'){if(__muted)return;__audio=__audio||new (window.AudioContext||window.webkitAudioContext)();const o=__audio.createOscillator(),gain=__audio.createGain();o.type=type;o.frequency.value=freq;gain.gain.setValueAtTime(.045,__audio.currentTime);gain.gain.exponentialRampToValueAtTime(.001,__audio.currentTime+dur);o.connect(gain);gain.connect(__audio.destination);o.start();o.stop(__audio.currentTime+dur)}addEventListener('click',e=>{if(e.target.closest('button,a'))__beep(520,.045,'triangle')},true);addEventListener('DOMContentLoaded',()=>{const st=document.getElementById('start'),sb=document.getElementById('startBtn'),snd=document.getElementById('soundBtn');if(sb)sb.onclick=()=>{__beep(760,.09,'square');st.style.display='none'};if(snd)snd.onclick=()=>{__muted=!__muted;snd.textContent=__muted?'Sound Off':'Sound On'}});
+
+const c=document.getElementById('c'),g=c.getContext('2d');let pad,ball,bricks,score,lives,launched,over;function reset(){pad={x:270};ball={x:320,y:420,vx:4,vy:-4,r:8};score=0;lives=3;launched=false;over=false;o.style.display='none';bricks=[];for(let y=0;y<5;y++)for(let x=0;x<10;x++)bricks.push({x:20+x*60,y:50+y*26,w:50,h:18,on:1,co:`hsl(${30+y*35},90%,60%)`});s.textContent=0;l.textContent=3}function launch(){if(!launched&&!over)launched=true}addEventListener('keydown',e=>{if(e.key==' ')launch();if(e.key=='ArrowLeft')pad.x-=35;if(e.key=='ArrowRight')pad.x+=35;pad.x=Math.max(0,Math.min(540,pad.x))});c.onpointermove=e=>{let r=c.getBoundingClientRect();pad.x=(e.clientX-r.left)*640/r.width-50};c.onpointerdown=launch;function loop(){if(launched&&!over){ball.x+=ball.vx;ball.y+=ball.vy;if(ball.x<8||ball.x>632)ball.vx*=-1;if(ball.y<8)ball.vy*=-1;if(ball.y>500){if(--lives<1){end('Game over')}else{l.textContent=lives;launched=false;ball.x=pad.x+50;ball.y=420}}if(ball.y>440&&ball.x>pad.x&&ball.x<pad.x+100&&ball.vy>0){ball.vy=-Math.abs(ball.vy);ball.vx=(ball.x-(pad.x+50))/9}for(const b of bricks)if(b.on&&ball.x>b.x&&ball.x<b.x+b.w&&ball.y>b.y&&ball.y<b.y+b.h){b.on=0;ball.vy*=-1;s.textContent=++score;if(score==50)end('You cleared the wall!')}}else{ball.x=pad.x+50}draw();requestAnimationFrame(loop)}function end(t){over=true;m.textContent=t;o.style.display='grid'}function draw(){g.fillStyle='#111421';g.fillRect(0,0,640,480);for(const b of bricks)if(b.on){g.fillStyle=b.co;g.fillRect(b.x,b.y,b.w,b.h)}g.fillStyle='#fff';g.fillRect(pad.x,450,100,12);g.fillStyle='#ffbd45';g.beginPath();g.arc(ball.x,ball.y,ball.r,0,7);g.fill()}reset();loop();</script>
+</body>
+</html>
