@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mini Arcade</title><style>
+:root{--bg:#090a12;--panel:#151827;--fg:#f5f7ff;--muted:#99a1bd}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at top,#1b2140,#090a12 55%);color:var(--fg);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;padding:28px}header{max-width:1100px;margin:auto auto 26px}h1{font-size:clamp(2rem,7vw,5rem);margin:0;text-shadow:8px 8px #000}p{color:var(--muted);line-height:1.5}.grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}.tile{--a:#5cf2ff;display:block;text-decoration:none;color:var(--fg);background:linear-gradient(145deg,#1d2135,#111320);border:3px solid var(--a);border-radius:18px;padding:22px;min-height:150px;box-shadow:10px 10px 0 #000, inset 0 0 30px #0008;transition:transform .15s,box-shadow .15s}.tile:hover,.tile:focus{transform:translate(-4px,-4px);box-shadow:14px 14px 0 #000;outline:none}.tile b{display:block;font-size:1.55rem;margin-bottom:16px;color:var(--a)}.tile span{color:var(--muted)}@media(prefers-reduced-motion:reduce){.tile{transition:none}}
+</style></head><body><header><h1>MINI ARCADE</h1><p>Offline vanilla HTML/CSS/JS games. Keep every file in this one folder and open <b>index.html</b> to play.</p></header><main class="grid">
+<a class="tile" style="--a:#65ff65" href="snake.html"><b>Snake</b><span>Arrows/WASD, Space restart.</span></a>
+<a class="tile" style="--a:#ff5cf7" href="pong.html"><b>Pong</b><span>W/S, arrows, mouse. First to 7.</span></a>
+<a class="tile" style="--a:#ffbd45" href="breakout.html"><b>Breakout</b><span>Mouse or arrows, click/Space launch.</span></a>
+<a class="tile" style="--a:#5cf2ff" href="tetris.html"><b>Tetris</b><span>Move, rotate, hard drop.</span></a>
+<a class="tile" style="--a:#ffd84c" href="2048.html"><b>2048</b><span>Arrows and touch swipes.</span></a>
+<a class="tile" style="--a:#7c6cff" href="flappy.html"><b>Flappy</b><span>Click/Space/↑ to flap.</span></a>
+<a class="tile" style="--a:#ff6b8b" href="tictactoe.html"><b>Tic Tac Toe</b><span>Unbeatable minimax AI.</span></a>
+<a class="tile" style="--a:#4dffbf" href="minesweeper.html"><b>Minesweeper</b><span>Reveal, flag, clear safe cells.</span></a>
+<a class="tile" style="--a:#b6ff4d" href="memory.html"><b>Memory</b><span>Match all 8 pairs.</span></a>
+</main></body></html>
